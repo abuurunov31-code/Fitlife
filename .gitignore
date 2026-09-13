@@ -1,5 +1,6 @@
-_pycache_/
+**/_pycache_/
 .vscode/
 *.pyc
 .pytest_cache/
 venv/
+backend_test_homework/
