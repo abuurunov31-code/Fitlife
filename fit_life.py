@@ -1,15 +1,35 @@
+# Константы
+WATER_PER_KG_ML = 30
+ML_IN_LITER = 1000
 print("Привет! Я бот Fitlife. Давай познакомимся.")
 
 user_name = input("Как тебя зовут?")
-user_age = int(input("Сколько тебе лет?"))
-user_weight = float(input("Введи свой вес в кг (например,75.5)"))
-user_height = float(input("Введи свой рост в метрах (например,1.80)"))
 
+while True:
+    try:
+        user_age = int(input("Сколько тебе лет?"))
+        break
+    except ValueError:
+        print("Ошибка! Пожалуйста, введите целое число.")
+
+while True:
+    try:
+        user_weight = float(input("Введи свой вес в кг (например,75.5): "))
+        break
+    except ValueError:
+        print("Ошибка! Пожалуйста, введите число.")
+
+while True:
+    try:
+        user_height = float(
+            input("Введи свой рост в метрах (например, 1.80): ")
+        )
+        break
+    except ValueError:
+        print("Ошибка! Пожалуйста, введите число.")
 # --- Расчет индекса массы тела ---
-bmi = user_weight / (user_height ** 2)
-bmi = round(bmi, 1)
-water_ml = user_weight * 30
-water_l = round(water_ml / 1000, 1)
+bmi = round(user_weight / (user_height ** 2), 1)
+water_l = round((user_weight * WATER_PER_KG_ML) / ML_IN_LITER, 1)
 # --- Определение категории ИМТ ---
 if bmi < 18.5:
     bmi_category = "Недостаточная масса тела"
